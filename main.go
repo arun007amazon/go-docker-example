@@ -13,7 +13,7 @@ import (
 
         "github.com/gorilla/mux"
         "gopkg.in/natefinch/lumberjack.v2"
-	"github.com/nats-io/nats.go"
+	"github.com/nats-io/go-nats-streaming"
 )
 
 var natsServer = flag.String("natsServer", "nats://operator-nats:4222", "Comma seperated nats servers")
@@ -72,12 +72,12 @@ func main() {
 func connectToNats() {
         //connect to nats server
         fmt.Printf("Establishing connection to the Nats server....")
-        nc, err := nats.Connect(*natsServer)
+        nc, err := stan.Connect("streaming-nats", "ClientX", stan.NatsURL(*natsServer))
         
         checkErr(err, "At nats connect")
         
         //publish to nats
-        nc.Publish("test", []byte("Sample data to nats"))
+        nc.Publish("test", []byte("Sample data to nats streaming"))
         
         nc.Close()
         
