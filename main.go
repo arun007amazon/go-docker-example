@@ -75,7 +75,7 @@ func connectToNats() {
         checkErr(err, "At nats connect")
         
         //publish to nats
-        nc.Publish("test", "some test data to nats)
+        nc.Publish("test", "some test data to nats")
         
         nc.Close()
         
