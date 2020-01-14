@@ -14,6 +14,7 @@ import (
         "github.com/gorilla/mux"
         "gopkg.in/natefinch/lumberjack.v2"
 	"github.com/nats-io/nats.go"
+)
 
 var natsServer = flag.String("natsServer", "nats://operator-nats:4222", "Comma seperated nats servers")
 
