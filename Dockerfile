@@ -11,7 +11,7 @@ WORKDIR /app
 
 RUN go get -u github.com/callicoder/go-docker
 
-RUN go get -u github.com/nats-io/nats.go
+RUN go get -u github.com/nats-io/go-nats-streaming
 
 # Copy the source from the current directory to the Working Directory inside the container
 COPY . .
